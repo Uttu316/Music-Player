@@ -29,7 +29,7 @@ function repeatCurretTrack() {
   this.currentTime = 0;
 }
 
-const BASE_URL = "http://5dd1894f15bbc2001448d28e.mockapi.io";
+const BASE_URL = "https://5dd1894f15bbc2001448d28e.mockapi.io";
 const END_POINTS = {
   getPlaylist: "/playlist",
 };
