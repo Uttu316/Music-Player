@@ -24,6 +24,9 @@ main {
   width: 70%;
   max-width: 900px;
 }
+.music-player section {
+  display: none;
+}
 .left-section {
   border-right: 1px solid rgba(0, 0, 0, 0.2);
   width: 60%;
@@ -49,6 +52,9 @@ main {
 
 .track {
   margin: 20px 0px;
+}
+#audio-system {
+  display: none;
 }
 
 .btn {
@@ -129,7 +135,41 @@ main {
 .list-item-singer {
   font-size: 14px;
 }
+.loader-wrapper {
+  width: 100%;
+}
 
+.loader {
+  margin: 0 auto;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-right: 16px solid green;
+  border-bottom: 16px solid red;
+  border-left: 16px solid pink;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @media screen and (max-width: 660px) {
   html,
   main {

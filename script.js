@@ -35,6 +35,7 @@ const END_POINTS = {
 };
 
 function getTracks() {
+  showLoader();
   $.get(`${BASE_URL}${END_POINTS.getPlaylist}`, function (data) {
     if (data && data.length) {
       trackArray = data;
@@ -43,9 +44,13 @@ function getTracks() {
     } else {
       console.log("No track Available");
     }
-  }).fail(function (e) {
-    console.log(e);
-  });
+  })
+    .fail(function (e) {
+      console.log(e);
+    })
+    .always(function (e) {
+      hideLoader();
+    });
 }
 
 function createList(trackList) {
@@ -95,8 +100,33 @@ function plugTrack(trackDetails) {
   const audioSystem = $("#audio-system"); // we just need to target #audio-system, we dont need source. Try after removing source from selector
   const title = $(".track-title");
   const singer = $(".track-singer");
+  const playBtn = $("#play-btn");
+  const pauseBtn = $("#pause-btn");
+
   trackImage.attr("src", albumCover);
   audioSystem.attr("src", file);
   title.html(track);
   singer.html(artist);
+  pauseBtn.hide();
+  playBtn.show();
+}
+
+function showLoader() {
+  const leftSection = $(".left-section");
+  const rightSection = $(".right-section");
+  const loader = $(".loader-wrapper");
+
+  leftSection.hide();
+  rightSection.hide();
+  loader.show();
+}
+
+function hideLoader() {
+  const leftSection = $(".left-section");
+  const rightSection = $(".right-section");
+  const loader = $(".loader-wrapper");
+
+  loader.hide(); // display: none
+  leftSection.css("display", "flex");
+  rightSection.show(); //  display: block
 }
