@@ -15,7 +15,6 @@ main {
   align-items: center;
   height: 100%;
 }
-
 .music-player {
   background-color: rgba(255, 223, 238, 0.4);
   box-shadow: 4px 4px 8px rgb(135 206 250 / 40%);
